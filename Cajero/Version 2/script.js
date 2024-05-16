@@ -1,5 +1,3 @@
-
-
 /*Validación del monto ingresado: Antes de continuar con la verificación del saldo y
 el retiro, necesito una validación para asegurarse de que el monto ingresado por
 el usuario sea un número válido y mayor que cero.
@@ -10,20 +8,16 @@ Mensajes más informativos: Mejorar los mensajes mostrados al usuario para
 brindar una retroalimentación más clara sobre el resultado del retiro. Esto incluye
 mensajes específicos para casos de saldo insuficiente y éxito en el retiro, así
 como la indicación del saldo disponible en caso de saldo insuficiente.*/
-
-// Definición de variables
 const usuario = "Paola";
 let saldo = 5000; 
-let retiro =8000;
-// Verificar si el saldo es suficiente
-if (saldo >= retiro) {
-    saldo-=retiro;
-    alert("Retiro exitoso. Su saldo actual es" + saldo);        
+let retiroStr = prompt("Ingrese el monto que desea retirar"); // El ingreso con prompt es una cadena
+let retiro = parseFloat(retiroStr); // Convertir la entrada a un número
+
+if (!isNaN(retiro) && retiro > 0 && saldo >= retiro) {
+    saldo -= retiro;
+    alert("Retiro exitoso. Su saldo actual es " + saldo);        
 } else {
-        alert("Monto inválido o fondos insuficientes." + saldo );
-    }
+    alert("Monto inválido o fondos insuficientes. Su saldo actual es " + saldo);
+}
 
-
-
-
-
+  
